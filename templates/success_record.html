@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block main %}
+    <div align="right" >
+        <a href="http://127.0.0.1:8001/pbs/"  class="btn btn-lg red"
+           style="background-color:#ff235a; font-size:20px; color:#fff9f8" ><strong>НА ГЛАВНУЮ</strong></a>
+    </div>
+    <article id="table_name">
+        <h4 align="center" style="color:#ff235a; font-size:25px;">{{ message }} </h4>
+        <h4 align="center" style="color:#cd2149; font-size:25px; ">{{ procedure_name }} </h4>
+        <h1 align="center" style="color:#ff235a; font-size:35px;">{{ date|date:"d-m-Y, G:i" }}</h1>
+        <h4 align="center" style="color:#884838; font-size:20px;">к мастеру </h4>
+        <h4 align="center" style="color:#cd2149; font-size:25px;">{{ procedure_master }}</h4>
+        <h4 align="center" style="color:#884838; font-size:20px;">Стоимость: {{ procedure_price }} BYN</h4>
+    </article>
+{% endblock %}

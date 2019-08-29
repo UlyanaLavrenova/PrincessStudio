@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% block main %}
+    <div align="right">
+        <a href="http://127.0.0.1:8001/pbs/" class="btn btn-lg red"
+           style="background-color:#ff235a; font-size:20px; color:#fff9f8"><strong>НА ГЛАВНУЮ</strong></a>
+    </div>
+    <article id="table_name">
+        <h4 align="center" style="color:#884838; font-size:20px;">Свободные дни и время для записи на </h4>
+        <h4 align="center" style="color:#cd2149; font-size:25px; ">{{ procedure_name }} </h4>
+        <h4 align="center" style="color:#884838; font-size:20px;">к мастеру </h4>
+        <h4 align="center" style="color:#cd2149; font-size:25px;">{{ procedure_master }}</h4>
+        <h4 align="center" style="color:#884838; font-size:20px;">Стоимость: {{ procedure_price }} BYN</h4>
+
+        {% if user.is_authenticated %}
+
+        {% else %}
+            <h4 align="center" style="color:#884838; font-size:50px;">Войдите, чтобы записаться</h4>
+        {% endif %}
+
+
+    </article>
+
+
+    <form action="selected_dates" method="get">
+        <div style="margin-bottom: 25px;"><h4 align="left" style="color:#053598; font-size:35px; ">Выберите дату</h4>
+            {{ dateform }}
+            <input type="submit" value="Выбрать" class="btn btn-lg red"
+                   style=" background-color:#ff235a; font-size:15px; color:#fff9f8">
+        </div>
+    </form>
+
+
+    {% if message %}
+        <h1 align="center" style="color:#053598; font-size:40px; ">{{ message }} {{ date }}</h1>
+    {% endif %}
+
+
+    <table class="table table-bordered">
+        {% if vacant_dates %}
+            <tr>
+                <th>Услуга</th>
+                <th>Стоимость</th>
+                <th>Мастер</th>
+                <th>Категория мастера</th>
+                <th>Свободное время</th>
+                {% if user.is_authenticated %}
+                    <th>Запись</th>
+                {% endif %}
+            </tr>
+
+            {% for i in vacant_dates %}
+                <tr>
+                    <td>{{ i.procedure.procedure_name }}</td>
+                    <td>{{ i.procedure.price }}</td>
+                    <td>{{ i.procedure.master.fio }}</td>
+                    <td>{{ i.procedure.master.category }}</td>
+                    <td>{{ i.vacant_date_time|date:"d-m-Y, G:i" }}</td>
+                    {% if user.is_authenticated %}
+                        <td>
+                            <input id="submit"
+                                   type="button"
+                                   class="btn btn-lg red"
+                                   value="Записаться" style="color:#ff235a; font-size:12px; "
+                                   onclick="document.location = '{{ i.id }}'">
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+
+        {% endif %}
+        <h1 align="center" style="color:#053598; font-size:40px; ">{{ message1 }}</h1>
+    </table>
+
+
+    {% if user.is_authenticated %}
+        <hr>
+        <h4 align="center" style="color:#053598; font-size:40px; ">Ваша запись</h4>
+        <table class="table table-bordered">
+            {% if record_of_user %}
+                <tr>
+                    <th>Услуга</th>
+                    <th>Стоимость</th>
+                    <th>Мастер</th>
+                    <th>Категория мастера</th>
+                    <th>Дата и время</th>
+                    {% if user.is_authenticated %}
+                        <th>Отменить запись</th>
+                    {% endif %}
+                </tr>
+
+                {% for i in record_of_user %}
+                    <tr>
+                        <td>{{ i.procedure.procedure_name }}</td>
+                        <td>{{ i.procedure.price }}</td>
+                        <td>{{ i.procedure.master.fio }}</td>
+                        <td>{{ i.procedure.master.category }}</td>
+                        <td>{{ i.vacant_time|date:"d-m-Y, G:i" }}</td>
+                        {% if user.is_authenticated %}
+                            <td>
+                                <input id="submit"
+                                       type="button"
+                                       class="btn btn-lg red"
+                                       value="Отменить" style="color:#ff235a; font-size:12px; "
+                                       onclick="document.location = 'cancel_record/{{ i.id }}'">
+                            </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <h1 align="center" style="color:#053598; font-size:20px; ">У вас нет действующих записей</h1>
+            {% endif %}
+
+        </table>
+        <hr>
+        <h4 style="color:#053598; font-size:40px; ">Отзывы</h4>
+
+        <form action="post/" method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input type="text"
+                   placeholder="Ваш коментарий"
+                   name="message"><input type="submit" value="Добавить" class="btn btn-lg red"
+                                         style="margin-left: 5px; background-color:#ff235a; font-size:15px; color:#fff9f8">
+
+        </div>
+    {% endif %}
+<hr>
+</form>
+
+    <div id="history">
+        {% for message in latest_messages %}
+            <div class="card">
+                <div class="card-body">
+                    <strong>
+                        {{ message.author.username }}
+                    </strong>
+                    <br/>
+                    <em>
+                        {{ message.pub_date|date:'Y-m-d H:i:s' }}
+                    </em>
+                    <br/>
+                    {{ message.message }}
+                </div>
+            </div>
+            <br/>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <title>Princess STUDIO & BEAUTY</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href={% static "img/favicon.png" %}>
+  <link rel="apple-touch-icon" href={% static "img/apple-touch-icon.png"%}>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:Lato:300,400,700,300italic,400italic|Raleway:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href={% static "lib/bootstrap/css/bootstrap.min.css" %}>
+  <link rel="stylesheet" href={% static "lib/icomoon/icomoon.css" %}>
+  <link rel="stylesheet" href={% static "css/style.css" %}>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+  <link rel="stylesheet" href={% static "css/datepicker.min.css" %}>
+<script src="../static/jquery/datepicker.min.js"></script>
+<script src="../static/jquery/jquery-3.3.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css" integrity="sha256-b88RdwbRJEzRx95nCuuva+hO5ExvXXnpX+78h8DjyOE=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js" integrity="sha256-/7FLTdzP6CfC1VBAj/rsp3Rinuuu9leMRGd354hvk0k=" crossorigin="anonymous"></script>
+</head>
+<body data-spy="scroll" data-offset="58" data-target="#navbar-main">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h1 class="mt-2">Princess Studio & Beaty</h1>
+            {% if user.is_authenticated %}
+                <p class="text-right">
+                    Приветствуем, {{ user.username }}!
+                    <a href="/pbs/logout">Выйти</a> |
+                    <a href="/pbs/password-change">
+                        Изменить пароль
+                    </a>
+                </p>
+            {% else %}
+                <p class="text-right">
+                    <a href="/pbs/login">Войти</a> |
+                    <a href="/pbs/register">Зарегестрироваться</a>
+                </p>
+            {% endif %}
+            <hr class="mt-0 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    {% block main %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  $(function () {
+    $("#id_date").datepicker({
+      format:'dd-mm-yyyy',
+    });
+  });
+</script>
+
+<script src="../static/lib/jquery/jquery.min.js"></script>
+<script src="../static/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../static/lib/php-mail-form/validate.js"></script>
+<script src="../static/lib/easing/easing.min.js"></script>
+</body>
+
+</html>

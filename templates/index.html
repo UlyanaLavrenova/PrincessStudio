@@ -1,0 +1,642 @@
+{% extends 'base.html' %}
+{% block main %}
+{% if message %}
+    <p><strong>{{ message }}</strong></p>
+{% endif %}
+
+  <div id="navbar-main">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon icon-shield" style="font-size:30px; color:#3498db;"></span>
+          </button>
+          <a class="navbar-brand hidden-xs hidden-sm smoothscroll" href="#home"><span class="icon icon-shield" style="font-size:18px; color:#3498db;"></span></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav" >
+            <li style="font-weight: 900;"><a href="#home" class="smoothscroll">Главная</a></li>
+            <li style="font-weight: 900;"> <a href="#about" class="smoothscroll"> О нас</a></li>
+            <li style="font-weight: 900;"> <a href="#services" class="smoothscroll"> Услуги</a></li>
+            <li style="font-weight: 900;"> <a href="#team" class="smoothscroll"> Наши мастера</a></li>
+            <li style="font-weight: 900;"> <a href="#portfolio" class="smoothscroll"> Портфолио</a></li>
+            <li style="font-weight: 900;"> <a href="#blog" class="smoothscroll"> Отзывы</a></li>
+            <li style="font-weight: 900;"> <a href="#contact" class="smoothscroll"> Контакты</a></li></ul>
+        </div>
+        <!--/.nav-collapse -->
+        <div class="phone"><a href="#exampleModal" data-toggle="modal"><img class="phone_img" src="../static/img/phone.gif"></a></div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Обратная связь</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm" action="handler.php" method="post">
+    <div class="form-group">
+        <label for="name">Ваше имя:</label>
+        <input id="name" class="form-control" name="name" required type="text" placeholder="Иванов Иван Иванович">
+    </div>
+    <div class="form-group">
+        <label for="email">Ваш E-mail:</label>
+        <input id="email" class="form-control" name="email" required type="text" placeholder="ivanov@gmail.com">
+    </div>
+    <div class="form-group">
+        <label for="phone">Ваш телефон:</label>
+        <input id="phone" class="form-control" name="phone" required type="text" placeholder="+375 33 636-11-37">
+    </div>
+    <div class="form-group">
+        <label for="message">Текст сообщения:</label>
+        <textarea id="message" class="form-control" required name="message" rows="4"></textarea>
+    </div>
+    <div class="form-group form-check">
+        <input id="check" class="form-check-input" checked type="checkbox">
+        <label class="form-check-label" for="check">Я добровольно отправляю свои данные</label>
+    </div>
+    <button id="button" class="btn btn-success" type="submit">Отправить</button>
+    <button type="button" class="btn btn-primary" data-dismiss="modal">Отменить</button>
+    <div class="result">
+        <span id="answer"></span>
+        <span id="loader" style="display:none"><img src="../static/img/phone.gif" alt=""></span>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{#<div class="exitblock">#}
+{#    <div class="fon"></div>#}
+{#    <div class="modaltext">#}
+{#    <h1 style="font-size: 28px;">Не нашли подходящую процедуру или удобное время?</h1>#}
+{#    <b><p style="font-size: 18px;">Оставьте заявку и мы что-нибудь придумаем!</p></b>#}
+{#    <div align="center">#}
+{#    <img width="30%" border="0" src="https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/1077290/1160/772/m1/fpnw/wm0/desk-phone-icon-flat-01-.jpg?1457714880&s=558c71354801f944d99d9fb209119981" />#}
+{#    </div>#}
+{#    <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left:650px;">Закрыть</button>#}
+{#    </div>#}
+{#    <div class="closeblock">+</div>#}
+{#</div>#}
+
+
+  <!-- ==== HEADERWRAP ==== -->
+  <div id="home"></div>
+  <div id="headerwrap" name="home">
+    <header class="clearfix">
+      <h1><span class="icon icon-shield"><a href="#" class="navbar-brand"><!-- <img src="img/logoo.png" alt="karma"> --></a></span></h1>
+      <p>Princess STUDIO & BEAUTY</p>
+      <p>НОГТЕВАЯ СТУДИЯ  & САЛОН КРАСОТЫ</p>
+    </header>
+  </div>
+    </div>
+  </div>
+  <!-- ==== ABOUT ==== -->
+  <div class="container" id="about" name="about">
+    <div class="row white">
+      <br>
+      <h1 class="centered">Princess STUDIO & BEAUTY – всё для вашего комфорта</h1>
+      <hr>
+
+      <div class="col-lg-6">
+        <p>Оставаться красивой и ухоженной при любых обстоятельствах – мечта каждой девушки. Аккуратные ногти, ухоженные волосы, выразительные брови и пушистые ресницы – то, без чего невозможно представить современную девушку. К сожалению, процедуры по уходу за собой отнимают немало времени и сил. Можно ли выглядеть роскошно и привлекательно без особых усилий? С нашим салоном красоты – да!
+
+Princess STUDIO & BEAUTY – это качественные услуги, отличный сервис, разумные цены и, конечно же, индивидуальный подход к нашим посетителям!</p>
+      </div>
+      <!-- col-lg-6 -->
+
+      <div class="col-lg-6">
+        <p>Наш салон красоты премиум-класса, гармонично сочетающий в себе уникальность дизайна, многофункциональность, уют зала и кабинетов и профессионализм мастеров с высоким качеством оказываемых услуг и доступными ценами. Салон создан для людей, которые ценят комфорт и индивидуальный подход, всегда стремятся к совершенству, выбирая лучшее!</p>
+      </div>
+      <!-- col-lg-6 -->
+    </div>
+    <!-- row -->
+  </div>
+  <!-- container -->
+
+  <!-- ==== SECTION DIVIDER1 -->
+  <section class="section-divider textdivider divider1">
+    <div class="container">
+      <h1>Princess STUDIO & BEAUTY</h1>
+      <hr>
+      <p>Салон красоты премиум-класса предлагает клиентам окунуться в расслабляющую атмосферу и испытать на себе потрясающий эффект от процедур.</p>
+    </div>
+    <!-- container -->
+  </section>
+  <!-- section -->
+
+
+    <!-- ==== PORTFOLIO ==== -->
+  <div class="container" id="services" name="portfolio">
+    <br>
+    <div class="row">
+      <br>
+      <h1 class="centered">Наши услуги</h1>
+      <hr>
+      <br>
+      <br>
+    </div>
+    <!-- /row -->
+    <div class="container">
+      <div class="row">
+
+        <!-- PORTFOLIO IMAGE 1 -->
+        <div class="col-md-4 ">
+          <div class="grid mask">
+            <figure>
+              <img class="img-responsive" src="../static/img/uslugi/2.jpg" alt="">
+              <figcaption>
+                <h5>МАНИКЮР</h5>
+                <a data-toggle="modal" href="#myModal1" class="btn btn-primary btn-lg">Цена</a>
+              </figcaption>
+              <!-- /figcaption -->
+            </figure>
+            <!-- /figure -->
+          </div>
+          <!-- /grid-mask -->
+        </div>
+
+
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">МАНИКЮР</h4>
+              </div>
+              <div class="modal-body">
+                <article id="table_name">
+            <h2 style="color:#884838;">Стоимость</h2>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>Услуга</th>
+                    <th>Стоимость</th>
+                    <th>Мастер</th>
+                    <th>Категория мастера</th>
+                </tr>
+                {% if procedures %}
+                    {% for i in procedures %}
+                        {% if 'маникюр' in i.procedure_name %}
+                            <tr onclick="document.location = 'vacant_dates/{{ i.id }}'">
+                                <td>{{ i.procedure_name }}</td>
+                                <td>{{ i.price }}</td>
+                                <td>{{ i.master.fio }}</td>
+                                <td>{{ i.master.category }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <p>Список услуг пуст.</p>
+                {% endif %}
+            </table>
+        </article>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+
+
+                <!-- PORTFOLIO IMAGE 2 -->
+        <div class="col-md-4">
+          <div class="grid mask">
+            <figure>
+              <img class="img-responsive" src="../static/img/uslugi/6.JPG" alt="">
+              <figcaption>
+                <h5>ПЕДИКЮР</h5>
+                <a data-toggle="modal" href="#myModal2" class="btn btn-primary btn-lg">Цена</a>
+              </figcaption>
+              <!-- /figcaption -->
+            </figure>
+            <!-- /figure -->
+          </div>
+          <!-- /grid-mask -->
+        </div>
+        <!-- /col -->
+          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">ПЕДИКЮР</h4>
+              </div>
+              <div class="modal-body">
+                <article id="table_name">
+            <h2 style="color:#884838;">Стоимость</h2>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>Услуга</th>
+                    <th>Стоимость</th>
+                    <th>Мастер</th>
+                    <th>Категория мастера</th>
+                </tr>
+                {% if procedures %}
+                    {% for i in procedures %}
+                        {% if 'педикюр' in i.procedure_name %}
+                            <tr onclick="document.location = 'vacant_dates/{{ i.id }}'">
+                                <td>{{ i.procedure_name }}</td>
+                                <td>{{ i.price }}</td>
+                                <td>{{ i.master.fio}}</td>
+                                <td>{{ i.master.category }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <p>Список услуг пуст.</p>
+                {% endif %}
+            </table>
+        </article>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+          </div>
+
+<!-- Кнопка, вызывающее модальное окно -->
+<a href="#myModal" class="btn btn-primary" data-toggle="modal" style="margin-left:650px;height: 4em; width: 12em"><b style="font-size: 20pt;">Записаться</b></a>
+
+<!-- HTML-код модального окна-->
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- Заголовок модального окна -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Онлайн запись:</h4>
+      </div>
+      <!-- Основное содержимое модального окна -->
+      <div class="modal-body">
+                <form id="contactForm" action="handler.php" method="post">
+    <div class="form-group">
+        <label for="name">Ваше имя:</label>
+        <input id="name" class="form-control" name="name" required type="text" placeholder="Иванов Иван Иванович">
+    </div>
+    <div class="form-group">
+        <label for="email">Ваш E-mail:</label>
+        <input id="email" class="form-control" name="email" required type="text" placeholder="ivanov@gmail.com">
+    </div>
+    <div class="form-group">
+        <label for="phone">Ваш телефон:</label>
+        <input id="phone" class="form-control" name="phone" required type="text" placeholder="+375 33 636-11-37">
+    </div>
+    <div class="form-group">
+        <label for="message">Название процедуры и время:</label>
+        <textarea id="message" class="form-control" required name="message" rows="4"></textarea>
+    </div>
+    <div class="form-group form-check">
+        <input id="check" class="form-check-input" checked type="checkbox">
+        <label class="form-check-label" for="check">Я добровольно отправляю свои данные</label>
+    </div>
+    <a href="#myModal_1" class="btn btn-primary" data-toggle="modal"><button id="button" class="btn btn-success" type="submit" data-dismiss="modal">Записаться</button></a>
+    <button type="button" class="btn btn-primary" data-dismiss="modal">Отменить</button>
+    <div class="result">
+        <span id="answer"></span>
+        <span id="loader" style="display:none"><img src="../static/img/phone.gif" alt=""></span>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div id="myModal_1" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Заголовок модального окна -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Статус заявки:</h4>
+      </div>
+      <!-- Основное содержимое модального окна -->
+      <div class="modal-body">
+        Вы записаны на процедуру! За сутки до процедуры администратор напомнит вам о записи.
+      </div>
+      <!-- Футер модального окна -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Все понятно</button>
+        <button type="button" class="btn btn-primary">Отменить</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Футер модального окна -->
+<!--
+        <button type="button" class="btn btn-default" data-dismiss="modal">Все понятно</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Отменить</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+  <!-- ==== SECTION DIVIDER2 -->
+  <section class="section-divider textdivider divider2">
+    <div class="container">
+      <h1>Princess STUDIO & BEAUTY</h1>
+      <hr>
+      <p>Качественные услуги, отличный сервис, разумные цены и, конечно же, индивидуальный подход к нашим посетителям!</p>
+    </div>
+    <!-- container -->
+  </section>
+  <!-- section -->
+
+  <!-- ==== TEAM MEMBERS ==== -->
+  <div class="container" id="team" name="team">
+    <br>
+    <div class="row white centered">
+      <h1 class="centered">Наши мастера</h1>
+      <hr>
+      <br>
+      <br>
+      <div class="col-lg-3 centered">
+        <img class="img img-circle" src="../static/img/team/team01.jpg" height="120px" width="120px" alt="">
+        <br>
+        <h4><b>Ирина Вайницкая</b></h4>
+        <a href="#" class="icon icon-twitter"></a>
+        <a href="#" class="icon icon-facebook"></a>
+        <a href="#" class="icon icon-flickr"></a>
+        <p>Мастер аппаратного маникюра и педикюра. Победитель множества конкурсов, приведет ваши ноготочки в порядок!</p>
+      </div>
+      <!-- col-lg-3 -->
+
+      <div class="col-lg-3 centered">
+        <img class="img img-circle" src="../static/img/team/team02.jpg" height="120px" width="120px" alt="">
+        <br>
+        <h4><b>Ольга Штерн</b></h4>
+        <a href="#" class="icon icon-twitter"></a>
+        <a href="#" class="icon icon-facebook"></a>
+        <a href="#" class="icon icon-flickr"></a>
+        <p>Бровист высшей категории. Откроет взгляд и сделает ваше личико притягательным!</p>
+      </div>
+      <!-- col-lg-3 -->
+
+      <div class="col-lg-3 centered">
+        <img class="img img-circle" src="../static/img/team/team03.jpg" height="120px" width="120px" alt="">
+        <br>
+        <h4><b>Алина Котова</b></h4>
+        <a href="#" class="icon icon-twitter"></a>
+        <a href="#" class="icon icon-facebook"></a>
+        <a href="#" class="icon icon-flickr"></a>
+        <p>Признанный парикмахер в Республике Беларусь! Владеет множеством техник крашивания и стрижек.</p>
+      </div>
+      <!-- col-lg-3 -->
+
+      <div class="col-lg-3 centered">
+        <img class="img img-circle" src="../static/img/team/team04.jpg" height="120px" width="120px" alt="">
+        <br>
+        <h4><b>Анастаси Гаврилина</b></h4>
+        <a href="#" class="icon icon-twitter"></a>
+        <a href="#" class="icon icon-facebook"></a>
+        <a href="#" class="icon icon-flickr"></a>
+        <p>Мастер по наращиванию ресничек. Владеет техникой наращивани 1D, 2D, 3D и даже 4D!</p>
+      </div>
+      <!-- col-lg-3 -->
+
+    </div>
+    <!-- row -->
+  </div>
+  <!-- container -->
+
+  <!-- ==== GREYWRAP ==== -->
+  <div id="greywrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 centered">
+          <img class="img-responsive" src="../static/img/IMG_5882.jpg" align="">
+        </div>
+        <div class="col-lg-4">
+          <h2>Мы ищем тебя!</h2>
+          <p>Если ты прекрасный мастер по аппаратному маникюру и педикюру и ты в поисках работы, то мы то, что тебе нужно. Оставляй заявку и мы перезвоним!</p>
+          <p><a class="btn btn-success">Напиши нам</a></p>
+        </div>
+      </div>
+      <!-- row -->
+    </div>
+    <br>
+    <br>
+  </div>
+  <!-- greywrap -->
+
+  <!-- ==== SECTION DIVIDER3 -->
+  <section class="section-divider textdivider divider3">
+    <div class="container">
+      <h1>Princess STUDIO & BEAUTY</h1>
+      <hr>
+      <p>Дизайн заведения, в котором красота обретает четкие формы, выполнен в стиле умеренного классицизма с элементами постмодернизма.</p>
+    </div>
+    <!-- container -->
+  </section>
+  <!-- section -->
+
+
+
+  <!-- ==== BLOG ==== -->
+  <div class="container" id="blog" name="blog">
+    <br>
+    <div class="row">
+      <br>
+      <h1 class="centered">Отзывы клиентов</h1>
+      <hr>
+      <br>
+      <br>
+    </div>
+    <!-- /row -->
+
+    <div class="row">
+      <div class="col-lg-6 blog-bg">
+        <div class="col-lg-4 centered">
+          <br>
+          <p><img class="img img-circle" src="../static/img/team/team04.jpg" width="60px" height="60px"></p>
+          <h4>Мария</h4>
+          <h5>Опубликовано 30 ноября</h5>
+        </div>
+        <div class="col-lg-8 blog-content">
+          <h2>Супер!</h2>
+          <p>Всем привет! Оставлю свой положительный отзыв😊 очень красивый салон Princess там очень приятно находиться и не хочется уходить, очень душевная атмосфера.</p>
+          <p>девочки все красивые, доброжелательные, всегда улыбаются, работают как пчёлки❤️ очень качественные работы, всегда ухожу довольная и счастливая</p>
+          <p><a href="#" class="icon icon-link"> Читать далее</a></p>
+          <br>
+        </div>
+      </div>
+      <!-- /col -->
+
+      <div class="col-lg-6 blog-bg">
+        <div class="col-lg-4 centered">
+          <br>
+          <p><img class="img img-circle" src="../static/img/team/team03.jpg" width="60px" height="60px"></p>
+          <h4>Ольга</h4>
+          <h5>Опубликовано 7 декабря</h5>
+        </div>
+        <div class="col-lg-8 blog-content">
+          <h2>Осталась довольна!</h2>
+          <p>Сегодня посетила замечательный салон и осталась очень довольна.. Хочу выразить благодарность администратору, которая уделила мне время и ответила на все мои вопросы.</p>
+          <p>Светлана - настоящий мастер своего дела. Все делала красиво, профессионально и быстро. Очень приятный и солнечный человек! Я очень осталась довольна работой Светланы. Огромное спасибо салону за таких мастеров!!!</p>
+          <p><a href="#" class="icon icon-link"> Читать далее</a></p>
+          <br>
+        </div>
+      </div>
+      <!-- /col -->
+    </div>
+    <!-- /row -->
+    <br>
+    <br>
+  </div>
+  <!-- /container -->
+  <!-- ==== SECTION DIVIDER4 ==== -->
+  <section class="section-divider textdivider divider4">
+    <div class="container">
+      <h1>Princess STUDIO & BEAUTY</h1>
+      <hr>
+      <p>Услуги оказывают мастера высочайшего класса, которые прошли отбор и смогли дополнить команду специалистов и единомышленников.</p>
+    </div>
+    <!-- container -->
+  </section>
+  <!-- section -->
+
+  <!-- ==== SECTION DIVIDER6 ==== -->
+  <section class="section-divider textdivider divider6">
+    <div class="container">
+      <h1>С любовью из МИНСКА</h1>
+      <hr>
+      <p>пр-т Победителей, 119</p>
+      <p>+375 33 636-11-37</p>
+      <p><a class="icon icon-twitter" href="#"></a> | <a class="icon icon-facebook" href="#"></a></p>
+    </div>
+    <!-- container -->
+  </section>
+  <!-- section -->
+
+  <div class="container" id="contact" name="contact">
+    <div class="row">
+      <br>
+      <h1 class="centered">Спасибо, что выбрали нас!</h1>
+      <hr>
+      <br>
+      <br>
+
+      <div class="col-lg-4">
+        <h3>Princess STUDIO & BEAUTY</h3>
+        <p>Всегда рады новым клиентам</p>
+        <h3>Подписка на новости и акции</h3>
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail1" class="col-lg-4 control-label"></label>
+            <div class="col-lg-10">
+              <input type="email" class="form-control" id="inputEmail1" placeholder="Ваш e-mail">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="text1" class="col-lg-4 control-label"></label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="text1" placeholder="Ваше имя">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-10">
+              <button type="submit" class="btn btn-success">Войти</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- col -->
+
+      <div class="col-lg-3">
+        <h3>Контактная информация</h3>
+        <p><span class="icon icon-home"></span> пр-т Победителей, 119<br/>
+          <span class="icon icon-phone"></span> +375 33 636-11-37 <br/>
+          <span class="icon icon-mobile"></span> +375 17 356-34-12 <br/>
+          <span class="icon icon-envelop"></span> <a href="#"> lavrenovaulyana@gmail.com</a> <br/>
+          <span class="icon icon-instagram"></span> <a href="#"> @ulyana_lavrenova </a> <br/>
+          <span class="icon icon-facebook"></span> <a href="#"> princessbeautysalon </a> <br/>
+        </p>
+      </div>
+      <!-- col -->
+
+      <div class="col-lg-5">
+        <h3>Контактная форма</h3>
+        <p>Напишите нам - и мы перезвоним.</p>
+        <form class="contact-form php-mail-form" role="form" action="contactform/contactform.php" method="POST">
+
+            <div class="form-group">
+              <input type="name" name="name" class="form-control" id="contact-name" placeholder="Введите имя" data-rule="minlen:4" data-msg="Please enter at least 4 chars" >
+              <div class="validate"></div>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" class="form-control" id="contact-email" placeholder="Введите e-mail" data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" id="contact-subject" placeholder="Введите тему письма" data-rule="minlen:4" data-msg="Пожалуйста, введите по меньшей мере 8 символов">
+              <div class="validate"></div>
+            </div>
+
+            <div class="form-group">
+              <textarea class="form-control" name="message" id="contact-message" placeholder="Введите ваше сообщение" rows="5" data-rule="required" data-msg="Пожалуйста, напишите что-нибудь для нас"></textarea>
+              <div class="validate"></div>
+            </div>
+
+            <div class="loading"></div>
+            <div class="error-message"></div>
+            <div class="sent-message">Ваше сообщение отправлено, спасибо!</div>
+
+            <div class="form-send">
+              <button type="submit" class="btn btn-large">Отправить сообщение</button>
+            </div>
+
+          </form>
+      </div>
+      <!-- col -->
+
+    </div>
+    <!-- row -->
+
+  </div>
+  <!-- container -->
+
+
+<div id="copyrights">
+  <div class="container">
+    <p>
+      &copy; Copyrights <strong>Princess Beauty Salon</strong>. Все права защищены
+    </p>
+    <div class="credits">
+      <!--
+        You are NOT allowed to delete the credit link to TemplateMag with free version.
+        You can delete the credit link only if you bought the pro version.
+        Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/shield-bootstrap-agency-template/
+        Licensing information: https://templatemag.com/license/
+      -->
+      Created by <a href="https://templatemag.com/">Ulyana Lavrenova</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
